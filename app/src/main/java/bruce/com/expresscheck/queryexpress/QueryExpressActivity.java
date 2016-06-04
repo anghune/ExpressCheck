@@ -1,4 +1,4 @@
-package bruce.com.expresscheck.view;
+package bruce.com.expresscheck.queryexpress;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,20 +7,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import bruce.com.expresscheck.R;
-import bruce.com.expresscheck.presenter.QueryPresenter;
 import bruce.com.expresscheck.utils.ActivityUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class QueryExpressActivity extends AppCompatActivity {
 
-    private QueryPresenter mQueryPresenter;
+    private QueryExpressPresenter mQueryExpressPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_query_express);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        QueryFragment queryFragment = new QueryFragment();
-        mQueryPresenter = new QueryPresenter(queryFragment);
+        QueryExpressFragment queryFragment = new QueryExpressFragment();
+        mQueryExpressPresenter = new QueryExpressPresenter(queryFragment);
         ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),queryFragment,R.id.contentFrame);
 
     }

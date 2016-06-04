@@ -1,4 +1,4 @@
-package bruce.com.expresscheck.view;
+package bruce.com.expresscheck.queryexpress;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,17 +12,16 @@ import android.widget.EditText;
 
 import bruce.com.expresscheck.R;
 import bruce.com.expresscheck.data.Express;
-import bruce.com.expresscheck.utils.TasksContract;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by WangChunhe on 2016/5/23.
  */
-public class QueryFragment extends Fragment  implements TasksContract.View{
+public class QueryExpressFragment extends Fragment  implements QureyExpressContract.View{
 
-    private static final String TAG = "QueryFragment";
-    private TasksContract.Presenter mPresenter;
+    private static final String TAG = "QueryExpressFragment";
+    private QureyExpressContract.Presenter mPresenter;
     private EditText mNumberEditxt;
     private Button mQueryButton;
 
@@ -39,7 +38,7 @@ public class QueryFragment extends Fragment  implements TasksContract.View{
     }
 
     @Override
-    public void setPresenter(TasksContract.Presenter presenter) {
+    public void setPresenter(QureyExpressContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
 
     }
@@ -47,7 +46,7 @@ public class QueryFragment extends Fragment  implements TasksContract.View{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View  root  = inflater.inflate(R.layout.content_main, container, false);
+        View  root  = inflater.inflate(R.layout.content_query_express, container, false);
 
         mNumberEditxt = (EditText) root.findViewById(R.id.edit_query_number);
         mQueryButton = (Button) root.findViewById(R.id.btn_query);

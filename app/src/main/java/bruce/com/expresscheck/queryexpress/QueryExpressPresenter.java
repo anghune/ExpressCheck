@@ -1,11 +1,10 @@
-package bruce.com.expresscheck.presenter;
+package bruce.com.expresscheck.queryexpress;
 
 import android.util.Log;
 
 import bruce.com.expresscheck.data.Express;
 import bruce.com.expresscheck.data.ExpressResult;
 import bruce.com.expresscheck.utils.HttpMethods;
-import bruce.com.expresscheck.utils.TasksContract;
 import rx.Subscriber;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -13,13 +12,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Created by WangChunhe on 2016/5/23.
  */
-public class QueryPresenter implements TasksContract.Presenter {
+public class QueryExpressPresenter implements QureyExpressContract.Presenter {
 
-    private static final String TAG = "QueryPresenter";
-    private final TasksContract.View mTasksView;
+    private static final String TAG = "QueryExpressPresenter";
+    private final QureyExpressContract.View mTasksView;
     private Subscriber<ExpressResult> mSubscriber;
+    private SubscriberOnNextListener mSubscriberOnNextListener;
 
-    public QueryPresenter(TasksContract.View tasksView) {
+    public QueryExpressPresenter(QureyExpressContract.View tasksView) {
         mTasksView = checkNotNull(tasksView, "tasksView cannot be null!");
         mTasksView.setPresenter(this);
     }
@@ -48,6 +48,8 @@ public class QueryPresenter implements TasksContract.Presenter {
 
         HttpMethods.getInstance().getExpressFromServer(mSubscriber, express);
     }
+
+
 
     @Override
     public void subscribe() {

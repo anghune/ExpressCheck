@@ -1,4 +1,4 @@
-package bruce.com.expresscheck.utils;
+package bruce.com.expresscheck.queryexpress;
 
 /**
  * Created by WangChunhe on 2016/6/1.

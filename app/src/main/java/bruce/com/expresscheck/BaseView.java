@@ -1,4 +1,4 @@
-package bruce.com.expresscheck.view;
+package bruce.com.expresscheck;
 
 /**
  * Created by WangChunhe on 2016/5/16.

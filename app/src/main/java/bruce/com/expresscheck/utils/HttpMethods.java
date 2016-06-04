@@ -6,6 +6,7 @@ import bruce.com.expresscheck.data.Express;
 import bruce.com.expresscheck.data.ExpressHttpResult;
 import bruce.com.expresscheck.data.ExpressResult;
 import bruce.com.expresscheck.data.JiShuService;
+import bruce.com.expresscheck.queryexpress.ApiException;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
