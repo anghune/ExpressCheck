@@ -17,6 +17,8 @@ public interface QureyExpressContract {
 
         String getNumber();
 
+        void showNetNotConnect();
+
     }
 
     interface Presenter extends BasePresenter {
