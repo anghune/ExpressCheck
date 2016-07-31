@@ -27,6 +27,11 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
-    compile 'io.reactivex:rxandroid:1.2.0'
-    compile 'io.reactivex:rxjava:1.1.5'
+    compile "com.squareup.okhttp3:$rootProject.okhttpVersion"
+    compile "com.squareup.retrofit2:$rootProject.retrofitVersion"
+    compile "io.reactivex:$rootProject.rxandroidVersion"
+    compile "io.reactivex:$rootProject.rxjavaVersion"
+    compile "com.squareup.retrofit2:$rootProject.gsonVersion"
+    compile "com.squareup.retrofit2:$rootProject.retrofitAdapterVersion"
+    compile "com.android.support:$rootProject.recyclerviewVersion"
 }

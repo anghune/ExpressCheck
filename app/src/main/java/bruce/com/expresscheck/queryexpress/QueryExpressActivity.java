@@ -18,9 +18,13 @@ public class QueryExpressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_query_express);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        QueryExpressFragment queryFragment = new QueryExpressFragment();
+
+        QueryExpressFragment queryFragment = (QueryExpressFragment) getSupportFragmentManager().findFragmentById(R.id.frame_query_express);
+        if (queryFragment == null){
+            queryFragment = QueryExpressFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),queryFragment,R.id.frame_query_express);
+        }
         mQueryExpressPresenter = new QueryExpressPresenter(queryFragment);
-        ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),queryFragment,R.id.contentFrame);
 
     }
 

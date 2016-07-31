@@ -1,9 +1,11 @@
 package bruce.com.expresscheck.data;
 
+import java.io.Serializable;
+
 /**
  * Created by WangChunhe on 2016/5/31.
  */
-public class ExpressHttpResult<T> {
+public class ExpressHttpResult<T> implements Serializable{
 
     private String status;  //请求结果码
     private String msg;     //请求结果信息

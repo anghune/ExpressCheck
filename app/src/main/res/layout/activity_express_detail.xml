@@ -10,4 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="bruce.com.expresscheck.expressdetail.ExpressDetailActivity">
 
+    <FrameLayout
+        android:id="@+id/frame_express_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 </RelativeLayout>

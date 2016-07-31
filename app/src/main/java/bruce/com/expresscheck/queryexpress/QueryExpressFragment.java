@@ -1,5 +1,6 @@
 package bruce.com.expresscheck.queryexpress;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,8 @@ import android.widget.EditText;
 
 import bruce.com.expresscheck.R;
 import bruce.com.expresscheck.data.Express;
+import bruce.com.expresscheck.data.ExpressResult;
+import bruce.com.expresscheck.expressdetail.ExpressDetailActivity;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -21,9 +24,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class QueryExpressFragment extends Fragment  implements QureyExpressContract.View{
 
     private static final String TAG = "QueryExpressFragment";
+    public static final String EXTRA = "EXPRESS_DETAIL_EXTRA";
     private QureyExpressContract.Presenter mPresenter;
     private EditText mNumberEditxt;
     private Button mQueryButton;
+
+    public static QueryExpressFragment newInstance() {
+        return new QueryExpressFragment();
+    }
 
     @Override
     public void onResume() {
@@ -46,7 +54,7 @@ public class QueryExpressFragment extends Fragment  implements QureyExpressContr
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View  root  = inflater.inflate(R.layout.content_query_express, container, false);
+        View  root  = inflater.inflate(R.layout.fragment_query_express, container, false);
 
         mNumberEditxt = (EditText) root.findViewById(R.id.edit_query_number);
         mQueryButton = (Button) root.findViewById(R.id.btn_query);
@@ -66,7 +74,12 @@ public class QueryExpressFragment extends Fragment  implements QureyExpressContr
     }
 
     @Override
-    public void showQueryExpressResult() {
+    public void showQueryExpressResult(ExpressResult expressResult) {
+
+        Intent intent = new Intent(getContext(), ExpressDetailActivity.class);
+        intent.putExtra(EXTRA,expressResult);
+        startActivity(intent);
+
 
     }
 

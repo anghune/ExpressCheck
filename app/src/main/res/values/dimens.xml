@@ -6,4 +6,5 @@
     <dimen name="editxt_number_width">30dp</dimen>
     <dimen name="editxt_number_marginTop">80dp</dimen>
     <dimen name="btn_query_marginTop">10dp</dimen>
+    <dimen name="view_item_recycler_width">3dp</dimen>
 </resources>

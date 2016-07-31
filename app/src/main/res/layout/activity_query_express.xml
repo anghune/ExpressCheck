@@ -23,7 +23,7 @@
 
 
     <FrameLayout
-        android:id="@+id/contentFrame"
+        android:id="@+id/frame_query_express"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
