@@ -2,6 +2,13 @@
     <string name="app_name">ExpressCheck</string>
     <string name="action_settings">Settings</string>
     <string name="express_number">订单号</string>
-    <string name="query">查询</string>
+    <string name="query">快递查询</string>
+    <string name="query_company">快递公司</string>
     <string name="prompt_text">网络不给力，请检查网络设置</string>
+    <string name="express_detail_title_txt">订单编号：</string>
+    <string name="express_detail_deliverystatus_title">物流状态：</string>
+    <string name="express_detail_company_title">快递公司：</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello 快递公司 </string>
 </resources>

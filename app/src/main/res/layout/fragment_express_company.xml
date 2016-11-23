@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context="bruce.com.expresscheck.querycompany.ExpressCompanyFragment">
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/recycler_express_company"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+
+      />
+
+
+    <bruce.com.expresscheck.querycompany.SideLetterBarView
+        android:id="@+id/side_bar_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        app:side_bar_pres_bg="#BEBEBE"
+   />
+
+  <TextView
+      android:id="@+id/text_tip"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_gravity="center"
+      android:background="@drawable/text_tip_bg_shape"
+      android:text="A"
+      android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+      android:gravity="center"
+      android:textColor="#FDFDFE"
+      android:visibility="gone"/>
+
+</FrameLayout>

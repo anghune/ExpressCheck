@@ -10,6 +10,8 @@ public class ExpressResult implements Serializable{
     private List<ExpressStatus> list;
 
     private String deliverystatus;
+    private String number;
+    private String type;
 
     public void setList(List<ExpressStatus> list){
         this.list = list;
@@ -22,6 +24,22 @@ public class ExpressResult implements Serializable{
     }
     public String getdeliverystatus(){
         return this.deliverystatus;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override

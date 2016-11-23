@@ -1,30 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 xmlns:app="http://schemas.android.com/apk/res-auto">
-    <bruce.com.expresscheck.expressdetail.CircleView
+    <RelativeLayout
+        android:id="@+id/circle_container"
         android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="#ccc"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="2dp"
-        app:exampleColor="@color/colorPrimaryDark"
-        />
-    <View
-        android:layout_width="3dp"
-        android:layout_height="match_parent"
-        android:background="@color/div_view_item_recycler"
-        android:layout_marginLeft="25dp"/>
-    <TextView
-        android:id="@+id/txt_recyview_express_detail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/content_container"
+        android:layout_alignBottom="@+id/content_container"
+        >
+        <View
+            android:id="@+id/line_top"
+            android:layout_width="1dp"
+            android:layout_height="17.5dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/item_express_detail_vertical_line"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cirle_container"
+            android:layout_below="@+id/line_top"
+            android:layout_centerHorizontal="true"
+            >
+            <bruce.com.expresscheck.expressdetail.CircleView
+                android:id="@+id/cirle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:exampleColor="@color/item_express_detail_vertical_line"
+                />
+            <bruce.com.expresscheck.expressdetail.DoubleCircleView
+                android:id="@+id/double_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:double_circle_mOutColor="@color/double_circle_out_color"
+                app:double_circle_mInColor="@color/double_circle_in_color"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line_bottom"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/cirle_container"
+            android:background="@color/item_express_detail_vertical_line"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:textSize="16sp"/>
+        android:layout_toRightOf="@+id/circle_container"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txt_express_detail_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:textColor="@color/express_detail_status_text_color"
+            android:textSize="@dimen/express_detail_text_size"/>
+        <TextView
+            android:id="@+id/txt_express_detail_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/express_detail_status_text_color"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/express_detail_text_size"/>
+        <View
+            android:id="@+id/content_bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/content_bottom_line_color"
+            />
+
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>

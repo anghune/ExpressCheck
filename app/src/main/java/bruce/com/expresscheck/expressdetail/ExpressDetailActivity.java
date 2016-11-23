@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import bruce.com.expresscheck.R;
+import bruce.com.expresscheck.data.ExpressResult;
+import bruce.com.expresscheck.queryexpress.QueryExpressFragment;
 import bruce.com.expresscheck.utils.ActivityUtils;
 
 public class ExpressDetailActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,8 @@ public class ExpressDetailActivity extends AppCompatActivity {
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),expressDetailFragment,R.id.frame_express_detail);;
 
         }
+        ExpressResult result = (ExpressResult) getIntent().getSerializableExtra(QueryExpressFragment.EXTRA);
+        new ExpressDetailPresenter(expressDetailFragment, result);
 
 
     }

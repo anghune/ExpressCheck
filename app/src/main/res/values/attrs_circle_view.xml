@@ -3,6 +3,23 @@
         <attr name="exampleString" format="string"/>
         <attr name="exampleDimension" format="dimension"/>
         <attr name="exampleColor" format="color"/>
+        <attr name="mOutColor" format="color"/>
+        <attr name="mWidth" format="dimension"/>
         <attr name="exampleDrawable" format="color|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="DoubleCircleView">
+        <attr name="double_circle_mInColor" format="color"/>
+        <attr name="double_circle_mOutColor" format="color"/>
+        <attr name="double_circle_mWidth" format="dimension"/>
+    </declare-styleable>
+    
+    <declare-styleable name="SideLetterBarView">
+        <attr name="side_bar_nor_bg" format="color|reference"/>
+        <attr name="side_bar_pres_bg" format="color|reference"/>
+        <attr name="side_bar_width" format="dimension"/>
+        <attr name="side_bar_text_nor_bg" format="color"/>
+        <attr name="side_bar_text_pres_bg" format="color"/>
+        <attr name="side_bar_text_size" format="dimension|integer"/>
     </declare-styleable>
 </resources>

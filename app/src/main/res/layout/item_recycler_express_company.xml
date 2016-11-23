@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+
+
+    >
+<!--<TextView-->
+    <!--android:id="@+id/text_letter_title"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="30dp"-->
+    <!--android:text="A"-->
+    <!--android:paddingTop="5dp"-->
+    <!--android:paddingLeft="35dp"-->
+    <!--android:background="#EAEAEA"/>-->
+
+
+
+
+    <TextView
+        android:id="@+id/text_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="快递公司"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textColor="#393A3F"
+
+
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/text_company_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_company_name"
+        android:textSize="14sp"
+        android:text="1234568"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"/>
+</LinearLayout>

@@ -19,9 +19,18 @@ public class CircleView extends View {
 //    private int mExampleColor = Color.RED; // TODO: use a default from R.color...
 //    private float mExampleDimension = 0; // TODO: use a default from R.dimen...
 //    private Drawable mExampleDrawable;
-
+    private final static String TAG = "CircleView";
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int mColor = Color.RED;
+    private boolean isDraeDouble;
+
+    private float mWidth = 10;
+//    private int mOutWith;
+//    private int mOutHeight;
+    private int mOutColor;
+    private Paint mOutPaint;
+
+
 
 //    private TextPaint mTextPaint;
 //    private float mTextWidth;
@@ -52,6 +61,8 @@ public class CircleView extends View {
         mColor = a.getColor(
                 R.styleable.CircleView_exampleColor,
                 mColor);
+        mOutColor = a.getColor(R.styleable.CircleView_mOutColor,mOutColor);
+        mWidth = a.getDimension(R.styleable.CircleView_mWidth,mWidth);
 
         // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
         // values that should fall on pixel boundaries.
@@ -66,28 +77,30 @@ public class CircleView extends View {
 //        }
 
         a.recycle();
-        mPaint.setColor(mColor);
 
         // Set up a default TextPaint object
 //        mTextPaint = new TextPaint();
 //        mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
 //        mTextPaint.setTextAlign(Paint.Align.LEFT);
 
+
+
         // Update TextPaint and text measurements from attributes
-//        invalidateTextPaintAndMeasurements();
+        invalidateTextPaintAndMeasurements();
     }
 
-//    private void invalidateTextPaintAndMeasurements() {
-//        mTextPaint.setTextSize(mExampleDimension);
-//        mTextPaint.setColor(mExampleColor);
-//        mTextWidth = mTextPaint.measureText(mExampleString);
-//
-//        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
-//        mTextHeight = fontMetrics.bottom;
-//    }
+    private void invalidateTextPaintAndMeasurements() {
+
+        mPaint.setColor(mColor);
+        if (isDraeDouble){
+            mOutPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            mOutPaint.setColor(mOutColor);
+        }
+
+    }
 
     /**
-     * 使得wrap_content在xml中生效，使用wrap_content默认宽/高都为200
+     * 使得wrap_content在xml中生效，使用wrap_content默认宽/高
      * @param widthMeasureSpec
      * @param heightMeasureSpec
      */
@@ -98,13 +111,28 @@ public class CircleView extends View {
         int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
-        if (widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST){
-            setMeasuredDimension(200, 200);
-        } else if (widthSpecMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(200, heightSpecSize);
-        } else if (widthSpecMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthSpecSize, 200);
-        }
+//        if (isDraeDouble){
+//            if (widthSpecMode == MeasureSpec.AT_MOST
+//                    && heightSpecMode == MeasureSpec.AT_MOST) {
+//                setMeasuredDimension(50, 50);
+//            } else if (widthSpecMode == MeasureSpec.AT_MOST) {
+//                setMeasuredDimension(50, heightSpecSize);
+//            } else if (heightSpecMode == MeasureSpec.AT_MOST) {
+//                setMeasuredDimension(widthSpecSize, 50);
+//            }
+//            Log.d(TAG,"  isDraeDouble ");
+//        } else {
+            if (widthSpecMode == MeasureSpec.AT_MOST
+                    && heightSpecMode == MeasureSpec.AT_MOST) {
+                setMeasuredDimension(15, 15);
+            } else if (widthSpecMode == MeasureSpec.AT_MOST) {
+                setMeasuredDimension(15, heightSpecSize);
+            } else if (heightSpecMode == MeasureSpec.AT_MOST) {
+                setMeasuredDimension(widthSpecSize, 15);
+            }
+//            Log.d(TAG,"   not isDraeDouble ");
+//        }
+
     }
 
     @Override
@@ -119,10 +147,29 @@ public class CircleView extends View {
         int paddingRight = getPaddingRight();
         int paddingBottom = getPaddingBottom();
 
+
         int contentWidth = getWidth() - paddingLeft - paddingRight;
         int contentHeight = getHeight() - paddingTop - paddingBottom;
         int radius = Math.min(contentWidth,contentHeight) / 2;
-        canvas.drawCircle(paddingLeft + contentWidth / 2, paddingTop + contentHeight / 2,radius, mPaint);
+//        Log.d(TAG, " radius = " + radius);
+
+
+
+//        if (isDraeDouble){
+//            mOutPaint.setStyle(Paint.Style.STROKE); //设置空心
+//            mOutPaint.setStrokeWidth(15);
+//            mOutPaint.setAntiAlias(true);
+//            canvas.drawCircle(paddingLeft + contentWidth / 2, paddingTop + contentHeight / 2, 25 -15, mOutPaint);
+//            canvas.drawCircle(paddingLeft + contentWidth / 2, paddingTop + contentHeight / 2, 25 -15 , mPaint);
+
+//            canvas.drawCircle(mWidth/ 2, mWidth / 2,mWidth-5 , mOutPaint);
+//            canvas.drawCircle(mWidth/ 2, mWidth / 2,mWidth-5 , mPaint);
+//        } else {
+            canvas.drawCircle(paddingLeft + contentWidth / 2, paddingTop + contentHeight / 2, radius, mPaint);
+
+//            canvas.drawCircle(mWidth/ 2, mWidth / 2,mWidth , mPaint);
+//        }
+
 
         // Draw the text.
 //        canvas.drawText(mExampleString,
@@ -138,6 +185,7 @@ public class CircleView extends View {
 //            mExampleDrawable.draw(canvas);
 //        }
     }
+
 
     /**
      * Gets the example string attribute value.
@@ -208,13 +256,41 @@ public class CircleView extends View {
 //        return mExampleDrawable;
 //    }
 
-    /**
-     * Sets the view's example drawable attribute value. In the example view, this drawable is
-     * drawn above the text.
-     *
-     * @param exampleDrawable The example drawable attribute value to use.
-     */
+//    /**
+//     * Sets the view's example drawable attribute value. In the example view, this drawable is
+//     * drawn above the text.
+//     *
+//     * @param exampleDrawable The example drawable attribute value to use.
+//     */
 //    public void setExampleDrawable(Drawable exampleDrawable) {
 //        mExampleDrawable = exampleDrawable;
 //    }
+
+
+    public void setColor(int color) {
+        mColor = color;
+        invalidateTextPaintAndMeasurements();
+    }
+//
+//    public void setOutWith(int outWith) {
+//        this.mOutWith = outWith;
+////        invalidateTextPaintAndMeasurements();
+//    }
+//
+//    public void setOutHeight(int outHeight) {
+//        this.mOutHeight = outHeight;
+////        invalidateTextPaintAndMeasurements();
+//    }
+
+    public void setOutColor(int outColor) {
+
+        mOutColor = outColor;
+        invalidateTextPaintAndMeasurements();
+    }
+
+    public void setDraeDouble(boolean draeDouble) {
+        isDraeDouble = draeDouble;
+    }
+
+
 }

@@ -38,31 +38,44 @@ public class ApiException extends RuntimeException{
         switch (code) {
             case NUMBER_IS_NULL:
                 msg = "快递单号为空";
+                break;
             case COMPANY_IS_NULL:
                 msg = "快递公司为空";
+                break;
             case COMPANY_NOT_EXIST:
                 msg = "快递公司不存在";
+                break;
             case COMPANU_AUTO_FAILED:
                 msg = "快递公司自动识别失败";
+                break;
             case NOT_INFO:
                 msg = "没有信息";
+                break;
             case APPKEY_IS_NULL_OR_NOT_EXIST:
                 msg = "APPKEY为空或不存在";
+                break;
             case APPKEY_EXPIRED:
                 msg = "APPKEY已过期";
+                break;
             case APPKEY_NOT_PERMISSION:
                 msg = "APPKEY无请求此数据权限";
+                break;
             case REQUEST_EXCEED_LIMIT:
                 msg = "请求超过次数限制";
+                break;
             case IP_FORBID:
                 msg = "IP被禁止";
+                break;
             case IP_REQUEST_EXCEED_LIMIT:;
                 msg = "IP请求超过限制";
+                break;
             case INTERFACE_MAINTAIN:
                 msg = "接口维护中";
+                break;
             case INTTERFACE_DISABLED:
                 msg = "接口已停用";
-                default:
+                break;
+            default:
                     msg = "系统错误";
         }
         return msg;

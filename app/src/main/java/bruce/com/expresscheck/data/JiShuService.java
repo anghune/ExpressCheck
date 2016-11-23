@@ -1,5 +1,7 @@
 package bruce.com.expresscheck.data;
 
+import java.util.List;
+
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -10,7 +12,9 @@ import rx.Observable;
 public interface JiShuService {
 
     @GET("query")
-    Observable<ExpressHttpResult<ExpressResult>> expres(@Query("appkey") String appkey,
+    Observable<ExpressHttpResult<ExpressResult>> getExpressDetail(@Query("appkey") String appkey,
                                                @Query("type") String type,
                                                @Query("number") String number);
+    @GET("type")
+    Observable<ExpressHttpResult<List<ExpressCompany>>> getExpressCompany(@Query("appkey") String appkey);
 }

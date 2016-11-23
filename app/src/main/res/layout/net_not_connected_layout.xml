@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:src="@drawable/prompt"
+
         android:tint="@android:color/holo_red_light"
         android:layout_gravity="left"/>
     <TextView

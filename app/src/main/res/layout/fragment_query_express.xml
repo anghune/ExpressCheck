@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
@@ -19,20 +19,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/express_number"
-        android:layout_marginTop="@dimen/editxt_number_marginTop"
-        android:layout_gravity="center_vertical"
-
         android:inputType="number"
         android:singleLine="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
     <Button
         android:id="@+id/btn_query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/btn_query_marginTop"
+        android:layout_below="@+id/edit_query_number"
         android:text="@string/query"
         android:textColor="@color/white"
         android:background="@drawable/shape"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         />
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_query_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/btn_query"
+        android:text="@string/query_company"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+</RelativeLayout>

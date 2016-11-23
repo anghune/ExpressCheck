@@ -5,4 +5,20 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
     <color name="div_view_item_recycler">#EBCFFF</color>
+    <color name="express_detail_title">#686868</color>
+    <color name="express_detail_content">#232326</color>
+
+    <!-- the color for  item_recycler_express_detail.xml -->
+    <color name="express_detail_status_text_color">#838588</color>
+    <color name="item_express_detail_vertical_line">#BEBEBE</color>
+    <color name="content_bottom_line_color">#E2E4E8</color>
+    <color name="double_circle_in_color">#F15D61</color>
+    <color name="double_circle_out_color">#F9C0C2</color>
+
+    <color name="alpha_white">#77FFFFFF</color>
+    <color name="super_light_grey">#FAFAFA</color>
+    <color name="light_grey">#D7D7D7</color>
+
+
+
 </resources>
